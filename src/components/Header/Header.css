@@ -1,0 +1,36 @@
+.header {
+	border-bottom: solid 1px black;
+	height: 15vh;
+}
+
+.top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.top img {
+	height: 40px;
+}
+
+.left-side,
+.top-nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.lower-nav {
+	display: flex;
+	justify-content: space-around;
+	align-items: baseline;
+	align-self: last-baseline;
+	margin-left: 32px;
+	font-size: 24px;
+	width: 30vw;
+}

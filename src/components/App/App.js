@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Route, NavLink, Link } from 'react-router-dom'
-import CardIndex from '../CardIndex/CardIndex'
-import Header from '../Header/Header'
 import './App.css'
+import Header from '../Header/Header'
+import SignUp from '../SignUp/SignUp'
 
 class App extends Component {
 	constructor() {
@@ -15,16 +15,8 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Route
-					exact
-					path="/"
-					render={() => (
-						<div>
-							<Header />
-							<CardIndex />
-						</div>
-					)}
-				/>
+				<Header />
+				<Route exact path="/signup" component={SignUp} />
 			</div>
 		)
 	}
