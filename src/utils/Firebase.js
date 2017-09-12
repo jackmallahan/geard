@@ -1,4 +1,3 @@
-import React from 'react'
 import firebase, { database } from 'firebase'
 
 // Initialize Firebase

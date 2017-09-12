@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import './App.css'
 import Header from '../Header/Header'
-import SignUp from '../SignUp/SignUp'
-import AddGear from '../AddGear/AddGear'
+import SignUpContainer from '../SignUp/SignUpContainer'
+import AddGearContainer from '../AddGear/AddGearContainer'
 import CardIndex from '../CardIndex/CardIndex'
 
 class App extends Component {
@@ -19,8 +19,8 @@ class App extends Component {
 			<div className="App">
 				<Header />
 				<Route exact path="/" component={CardIndex} />
-				<Route exact path="/signup" component={SignUp} />
-				<Route exact path="/addgear" component={AddGear} />
+				<Route exact path="/signup" component={SignUpContainer} />
+				<Route exact path="/addgear" component={AddGearContainer} />
 			</div>
 		)
 	}

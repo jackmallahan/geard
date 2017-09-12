@@ -1,8 +1,9 @@
-import React from 'react'
 import { connect } from 'react-redux'
-import { postNewGear } from '../../actions/actions'
-import AddGear from '../AddGear/AddGear'
+import { addGear } from '../../actions/index'
+import AddGear from './AddGear'
 import { bindActionCreators } from 'redux'
+
+console.log('add gear in container', this.props)
 
 const mapStateToProps = state => {
 	console.log('state', state)
@@ -10,7 +11,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-	return bindActionCreators({ addGear: postNewGear }, dispatch)
+	return bindActionCreators({ addGear: addGear }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddGear)

@@ -7,11 +7,11 @@ class SignUp extends Component {
 		this.state = {
 			userName: '',
 			email: '',
-			password: ''
+			password: '',
+			id: ''
 		}
 		this.handleChange = this.handleChange.bind(this)
-		this.clearFields = this.clearFields.bind(this)
-		// this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
 	handleChange(e) {
@@ -20,23 +20,15 @@ class SignUp extends Component {
 		})
 	}
 
-	// handleSubmit(e) {
-	// 	e.preventDefault()
-	// 	const usersRef = firebase.database().ref('users')
-	// 	const user = {
-	// 		userName: this.state.userName,
-	// 		email: this.state.email,
-	// 		password: this.state.password
-	// 	}
-	// 	usersRef.push(user)
-	// 	this.setState({
-	// 		userName: '',
-	// 		email: '',
-	// 		password: ''
-	// 	})
-	// }
-
-	clearFields() {
+	handleSubmit(e) {
+		e.preventDefault()
+		const usersRef = firebase.database().ref('users')
+		const user = {
+			userName: this.state.userName,
+			email: this.state.email,
+			password: this.state.password
+		}
+		usersRef.push(user)
 		this.setState({
 			userName: '',
 			email: '',
@@ -45,7 +37,7 @@ class SignUp extends Component {
 	}
 
 	render() {
-		console.log('props', this.props)
+		console.log('props in sign up', this.props)
 		return (
 			<div className="sign-up">
 				<input name="userName" placeholder="userName" onChange={this.handleChange} value={this.state.userName} />
@@ -57,7 +49,7 @@ class SignUp extends Component {
 					onChange={this.handleChange}
 					value={this.state.password}
 				/>
-				<button onClick={this.props.addUser({ name: this.state.name })}>Sign Up</button>
+				<button onClick={this.props.handleSubmit}>Sign Up</button>
 			</div>
 		)
 	}

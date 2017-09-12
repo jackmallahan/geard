@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import firebase from '../../utils/Firebase'
 
 class AddGear extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			name: '',
 			activiy: '',
 			price: '',
-			currentUser: null,
+			currentUser: '',
 			allGear: []
 		}
 		this.handleChange = this.handleChange.bind(this)
@@ -17,15 +17,25 @@ class AddGear extends Component {
 
 	handleChange(e) {
 		this.setState({
-			[e.target.name]: e.target.value
+			[e.target.className]: e.target.value
 		})
 	}
 
 	handleSubmit(e) {
-		this.props.postNewGear({
+		const gearRef = firebase.database().ref('gear')
+		const gear = {
 			name: this.state.name,
 			activiy: this.state.activity,
-			price: this.state.price
+			price: this.state.price,
+			currentUser: this.state.currentUser
+		}
+		gearRef.push(gear)
+		this.props.addGear(gear)
+		this.setState({
+			name: '',
+			activiy: '',
+			price: '',
+			currentUser: ''
 		})
 	}
 
@@ -39,11 +49,22 @@ class AddGear extends Component {
 						this.handleSubmit()
 					}}
 				>
-					<input name="name" placeholder="Gear Name" onChange={this.handleChange} value={this.state.userName} />
-					<input name="activity" placeholder="Activity" onChange={this.handleChange} value={this.state.activity} />
-					<p>$0</p>
 					<input
-						name="price"
+						className="name"
+						type="text"
+						placeholder="Gear Name"
+						onChange={this.handleChange}
+						value={this.state.userName}
+					/>
+					<input
+						className="activity"
+						type="text"
+						placeholder="Activity"
+						onChange={this.handleChange}
+						value={this.state.activity}
+					/>
+					$<input
+						className="price"
 						placeholder="0"
 						type="number"
 						min="0.01"

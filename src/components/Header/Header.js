@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logo from '../../assets/carabiner.png'
 import './Header.css'
 

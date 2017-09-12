@@ -1,8 +1,8 @@
 const gear = (state = [], action) => {
-	console.log('gear action', action)
 	switch (action.type) {
 		case 'ADD_GEAR':
-			return [...state, ...action.gear]
+			console.log(action)
+			return state.push(action.gear)
 		default:
 			return state
 	}

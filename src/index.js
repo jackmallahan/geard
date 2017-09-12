@@ -11,7 +11,6 @@ import App from './components/App/App'
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 const store = createStore(rootReducer, devTools, applyMiddleware(thunk))
-console.log('store', store)
 
 const router = (
 	<Provider store={store}>

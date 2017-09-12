@@ -1,15 +1,15 @@
-const users = (state = [], action) => {
-	console.log('action', action)
+const loggedIn = (state = [], action) => {
 	switch (action.type) {
-		case 'ADD_USER':
+		case 'LOGIN':
 			return Object.assign(state, {
 				userName: action.user.userName,
 				email: action.user.email,
-				password: action.user.password
+				password: action.user.password,
+				id: action.user.id
 			})
 		default:
 			return state
 	}
 }
 
-export default users
+export default loggedIn
