@@ -10,8 +10,12 @@ var config = {
 	storageBucket: '',
 	messagingSenderId: '516201890480'
 }
+
 firebase.initializeApp(config)
 
-const database = firebase.database()
+const auth = firebase.auth()
+const provider = new firebase.auth.GoogleAuthProvider()
+export const signIn = () => auth.signInWithPopup(provider)
+export const signOut = () => auth.signOut()
 
 export default firebase
