@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import users from './signUpReducer'
+import loggedIn from './signUpReducer'
 import gear from './addGearReducer'
 
 const rootReducer = combineReducers({
-	users,
+	loggedIn,
 	gear
 })
 

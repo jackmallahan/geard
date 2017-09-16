@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../../assets/carabiner.png'
 import './Header.css'
+import Firebase, { auth, provider } from '../../utils/Firebase'
+import container from '../../container/index'
 
 class Header extends Component {
 	render() {
@@ -43,4 +45,4 @@ class Header extends Component {
 	}
 }
 
-export default Header
+export default container(Header)

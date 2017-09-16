@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 const mapStateToProps = state => {
-	return { gear: state.gear, users: state.users }
+	return { gear: state.gear, loggedIn: state.loggedIn }
 }
 
 const mapDispatchToProps = dispatch => {

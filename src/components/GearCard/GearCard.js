@@ -6,7 +6,7 @@ const GearCard = ({ activity, name, price, owner }) => {
 		<article className="gear-card">
 			<h3>{name}</h3>
 			<h5>{activity}</h5>
-			<p>{price}</p>
+			<p>${price}</p>
 		</article>
 	)
 }

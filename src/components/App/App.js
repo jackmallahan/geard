@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import './App.css'
 import Header from '../Header/Header'
-import SignUpContainer from '../SignUp/SignUpContainer'
+import SignUp from '../SignUp/SignUp'
 import AddGearContainer from '../AddGear/AddGearContainer'
 import CardIndex from '../CardIndex/CardIndex'
+import container from '../../container/index'
+import Firebase, { auth } from '../../utils/Firebase'
 
 class App extends Component {
 	constructor() {
@@ -14,16 +16,27 @@ class App extends Component {
 			when: ''
 		}
 	}
+
+	componentDidMount() {
+		auth.onAuthStateChanged(user => {
+			if (user) {
+				console.log('user in CDM', user)
+				this.props.login({ name: user.displayName, email: user.email, id: user._lat })
+			}
+		})
+	}
+
 	render() {
 		return (
 			<div className="App">
 				<Header />
 				<Route exact path="/" component={CardIndex} />
-				<Route exact path="/signup" component={SignUpContainer} />
+				<Route exact path="/signup" component={SignUp} />
+				<Route exact path="/login" component={SignUp} />
 				<Route exact path="/addgear" component={AddGearContainer} />
 			</div>
 		)
 	}
 }
 
-export default App
+export default container(App)

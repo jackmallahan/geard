@@ -12,9 +12,12 @@ var config = {
 
 firebase.initializeApp(config)
 
-const auth = firebase.auth()
-const provider = new firebase.auth.GoogleAuthProvider()
-export const signIn = () => auth.signInWithPopup(provider)
+export const auth = firebase.auth()
+
+const googleProvider = new firebase.auth.GoogleAuthProvider()
+
+export const googleSignIn = () => auth.signInWithPopup(googleProvider)
+
 export const signOut = () => auth.signOut()
 
 export default firebase

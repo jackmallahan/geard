@@ -5,6 +5,12 @@ export const login = user => {
 	}
 }
 
+export const logout = () => {
+	return {
+		type: 'LOGOUT'
+	}
+}
+
 export const addGear = gear => {
 	return {
 		type: 'ADD_GEAR',
