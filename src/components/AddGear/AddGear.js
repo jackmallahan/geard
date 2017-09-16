@@ -6,10 +6,9 @@ class AddGear extends Component {
 		super(props)
 		this.state = {
 			name: '',
-			activiy: '',
+			activity: '',
 			price: '',
-			currentUser: '',
-			allGear: []
+			owner: 'Jack'
 		}
 		this.handleChange = this.handleChange.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,15 +24,15 @@ class AddGear extends Component {
 		const gearRef = firebase.database().ref('gear')
 		const gear = {
 			name: this.state.name,
-			activiy: this.state.activity,
+			activity: this.state.activity,
 			price: this.state.price,
-			currentUser: this.state.currentUser
+			owner: this.state.owner
 		}
 		gearRef.push(gear)
 		this.props.addGear(gear)
 		this.setState({
 			name: '',
-			activiy: '',
+			activity: '',
 			price: '',
 			currentUser: ''
 		})
