@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import firebase from '../../utils/Firebase'
+import container from '../../container/index'
 
 class AddGear extends Component {
 	constructor(props) {
@@ -7,8 +8,7 @@ class AddGear extends Component {
 		this.state = {
 			name: '',
 			activity: '',
-			price: '',
-			owner: 'Jack'
+			price: ''
 		}
 		this.handleChange = this.handleChange.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -16,7 +16,7 @@ class AddGear extends Component {
 
 	handleChange(e) {
 		this.setState({
-			[e.target.className]: e.target.value
+			[e.target.name]: e.target.value
 		})
 	}
 
@@ -26,7 +26,7 @@ class AddGear extends Component {
 			name: this.state.name,
 			activity: this.state.activity,
 			price: this.state.price,
-			owner: this.state.owner
+			owner: this.props.loggedIn
 		}
 		gearRef.push(gear)
 		this.props.addGear(gear)
@@ -49,25 +49,25 @@ class AddGear extends Component {
 					}}
 				>
 					<input
-						className="name"
+						name="name"
 						type="text"
 						placeholder="Gear Name"
 						onChange={this.handleChange}
 						value={this.state.userName}
 					/>
 					<input
-						className="activity"
+						name="activity"
 						type="text"
 						placeholder="Activity"
 						onChange={this.handleChange}
 						value={this.state.activity}
 					/>
 					$<input
-						className="price"
+						name="price"
 						placeholder="0"
 						type="number"
-						min="0.01"
-						step="0.01"
+						min="0.00"
+						step="0.25"
 						onChange={this.handleChange}
 						value={this.state.price}
 					/>
@@ -78,4 +78,4 @@ class AddGear extends Component {
 	}
 }
 
-export default AddGear
+export default container(AddGear)

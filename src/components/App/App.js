@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import './App.css'
 import Header from '../Header/Header'
 import SignUp from '../SignUp/SignUp'
-import AddGearContainer from '../AddGear/AddGearContainer'
+import AddGear from '../AddGear/AddGear'
 import CardIndex from '../CardIndex/CardIndex'
 import container from '../../container/index'
 import Firebase, { auth } from '../../utils/Firebase'
@@ -33,7 +33,7 @@ class App extends Component {
 				<Route exact path="/" component={CardIndex} />
 				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/login" component={SignUp} />
-				<Route exact path="/addgear" component={AddGearContainer} />
+				<Route exact path="/addgear" component={AddGear} />
 			</div>
 		)
 	}
