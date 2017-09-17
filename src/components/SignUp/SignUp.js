@@ -34,8 +34,9 @@ class SignUp extends Component {
 	googleLogin() {
 		googleSignIn().then(result => {
 			const user = result.user
+			const userId = user._lat.slice(-9)
 			console.log('user in google login', user.displayName)
-			this.props.login({ name: user.displayName, email: user.email, id: user._lat })
+			this.props.login({ name: user.displayName, email: user.email, id: userId })
 		})
 	}
 

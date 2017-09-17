@@ -20,7 +20,7 @@ class App extends Component {
 	componentDidMount() {
 		auth.onAuthStateChanged(user => {
 			if (user) {
-				this.props.login({ name: user.displayName, email: user.email, id: user._lat })
+				this.props.login({ name: user.displayName, email: user.email, id: user._lat.slice(-9) })
 			}
 		})
 	}
