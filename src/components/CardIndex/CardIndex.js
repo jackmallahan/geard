@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import firebase from '../../utils/Firebase'
 import container from '../../container/index'
 import GearCard from '../GearCard/GearCard'
+import './CardIndex.css'
 
 class CardIndex extends Component {
 	componentDidMount() {
 		const gearRef = firebase.database().ref('gear')
 		gearRef.on('value', snapshot => {
+			console.log('snapshot val', snapshot.val())
 			let gearObj = snapshot.val()
-			const keys = Object.keys(gearObj)
+			let keys = Object.keys(gearObj)
 			let gear = []
 			for (let i = 0; i < keys.length; i++) {
 				gear[i] = gearObj[keys[i]]
@@ -19,10 +21,9 @@ class CardIndex extends Component {
 	}
 
 	render() {
-		console.log('this.props', this.props)
 		const gearArray = this.props.gear || []
 		const gearInfo = gearArray.map((gear, index) => <GearCard key={gear.id} {...gear} index={index} />)
-		return <div>{gearInfo}</div>
+		return <div className="card-index">{gearInfo}</div>
 	}
 }
 

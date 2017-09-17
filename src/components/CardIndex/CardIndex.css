@@ -1,0 +1,7 @@
+.card-index {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	height: 85vh;
+	overflow: scroll;
+}

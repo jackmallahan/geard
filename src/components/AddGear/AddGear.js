@@ -33,13 +33,11 @@ class AddGear extends Component {
 		this.setState({
 			name: '',
 			activity: '',
-			price: '',
-			currentUser: ''
+			price: ''
 		})
 	}
 
 	render() {
-		console.log('this.props in addGear', this.props)
 		return (
 			<div className="sign-up">
 				<form

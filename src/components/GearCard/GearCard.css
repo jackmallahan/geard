@@ -1,0 +1,31 @@
+.gear-card {
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px lightgrey;
+	height: 250px;
+	width: 30%;
+	margin-top: 25px;
+	opacity: 0.8;
+	transition: 0.5s;
+}
+
+.gear-image {
+	background-image: url('../../assets/pic-placeholder.svg');
+	background-size: cover;
+	background-position: center;
+	height: 60%;
+	width: 100%;
+}
+
+.gear-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 40%;
+	padding: 0 5px;
+}
+
+.gear-info p {
+	align-self: flex-end;
+	color: #ff754c;
+}

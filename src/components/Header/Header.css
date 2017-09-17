@@ -1,5 +1,6 @@
 .header {
-	border-bottom: solid 1px black;
+	border-bottom: solid 1px grey;
+	box-shadow: 2px 2px 2px lightgrey;
 	height: 15vh;
 }
 
@@ -11,6 +12,7 @@
 
 .top img {
 	height: 40px;
+	transform: scaleX(-1) rotate(30deg);
 }
 
 .left-side,

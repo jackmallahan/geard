@@ -1,0 +1,29 @@
+
+<svg width="268px" height="195px" viewBox="0 0 268 195" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-2.7%" y="-1.6%" width="105.4%" height="104.4%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Geard-Desktop" transform="translate(-151.000000, -231.000000)">
+            <g id="Gear-Cards" transform="translate(155.000000, 233.000000)">
+                <g id="Gear-Card" filter="url(#filter-1)">
+                    <g id="Group">
+                        <rect id="Area" fill="#D2D9E3" opacity="0.733242754" x="0" y="0" width="260" height="186.488136"></rect>
+                        <path d="M154,110.494915 L154,80.3118644 C154,77.940339 151.65,76 148.777778,76 L112.222222,76 C109.35,76 107,77.940339 107,80.3118644 L107,110.494915 C107,112.866441 109.35,114.80678 112.222222,114.80678 L148.777778,114.80678 C151.65,114.80678 154,112.866441 154,110.494915 L154,110.494915 Z M121.361111,98.6372881 L127.888889,105.105085 L137.027778,95.4033898 L148.777778,108.338983 L112.222222,108.338983 L121.361111,98.6372881 L121.361111,98.6372881 Z" id="Shape" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
