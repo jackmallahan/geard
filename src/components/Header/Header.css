@@ -1,4 +1,8 @@
 .header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 5px;
 	border-bottom: solid 1px grey;
 	box-shadow: 2px 2px 2px lightgrey;
 	height: 15vh;
@@ -8,11 +12,52 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 95%;
+	height: 60%;
 }
 
 .top img {
 	height: 40px;
 	transform: scaleX(-1) rotate(30deg);
+}
+
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40px;
+	width: 80%;
+	border: 1px solid grey;
+	box-shadow: 1px 1px 1px lightgrey;
+	border-radius: 5px;
+}
+
+form input {
+	height: 95%;
+	width: 40%;
+	border: none;
+	border-radius: 5px;
+	padding-left: 5px;
+}
+
+form input:focus {
+	outline: none;
+}
+
+form .btn {
+	width: 20%;
+	background: none;
+	border: none;
+}
+
+.border {
+	height: 50%;
+	border-right: 1px solid grey;
+}
+
+.left-side {
+	margin-left: 10px;
+	width: 30%;
 }
 
 .left-side,
@@ -22,16 +67,26 @@
 	align-items: center;
 }
 
+.top-nav {
+	width: 15%;
+}
+
 a {
 	text-decoration: none;
 	color: black;
+}
+
+.bottom {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	height: 40%;
 }
 
 .lower-nav {
 	display: flex;
 	justify-content: space-around;
 	align-items: baseline;
-	align-self: last-baseline;
 	margin-left: 32px;
 	font-size: 24px;
 	width: 30vw;

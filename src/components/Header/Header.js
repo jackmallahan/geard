@@ -16,8 +16,10 @@ class Header extends Component {
 						</div>
 						<form>
 							<input placeholder="where" />
+							<span className="border" />
 							<input placeholder="when" />
-							<input type="submit" />
+							<span className="border" />
+							<input className="btn" type="submit" />
 						</form>
 					</div>
 					<div className="top-nav">
@@ -29,16 +31,18 @@ class Header extends Component {
 						</NavLink>
 					</div>
 				</div>
-				<div className="lower-nav">
-					<NavLink to="/" className="explore-link">
-						Explore
-					</NavLink>
-					<NavLink to="/adventure" className="adventure-link">
-						Adventure
-					</NavLink>
-					<NavLink to="/type" className="type-link">
-						Type
-					</NavLink>
+				<div className="bottom">
+					<div className="lower-nav">
+						<NavLink to="/" className="explore-link">
+							Explore
+						</NavLink>
+						<NavLink to="/adventure" className="adventure-link">
+							Adventure
+						</NavLink>
+						<NavLink to="/type" className="type-link">
+							Type
+						</NavLink>
+					</div>
 				</div>
 			</section>
 		)
