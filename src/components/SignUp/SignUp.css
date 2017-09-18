@@ -1,0 +1,60 @@
+.sign-up {
+	background: lightgrey;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 500px;
+}
+
+.user-input {
+	background: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 75%;
+	width: 50%;
+	border: 1px solid grey;
+	border-radius: 15px;
+	box-shadow: 2px 2px 2px lightgrey;
+}
+
+.user-input h3 {
+	width: 90%;
+	cursor: pointer;
+}
+
+.user-input input,
+.user-input button {
+	height: 40px;
+	width: 90%;
+	font-size: 24px;
+}
+
+.user-input button {
+	border: none;
+	border-radius: 5px;
+	background: #ff754c;
+	color: white;
+	cursor: pointer;
+}
+
+.user-input .google-login {
+	background: white;
+	color: black;
+	border: 1px solid gray;
+}
+
+.google-login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.google-logo {
+	height: 20px;
+	width: 20px;
+	margin-right: 10px;
+	background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2000px-Google_%22G%22_Logo.svg.png');
+	background-size: cover;
+}

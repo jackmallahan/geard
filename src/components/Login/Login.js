@@ -49,7 +49,6 @@ class Login extends Component {
 		return (
 			<div className="user-input-container">
 				<div className="login user-input">
-					<h3>X</h3>
 					<input type="email" name="email" placeholder="email" onChange={this.handleChange} value={this.state.email} />
 					<input
 						type="password"

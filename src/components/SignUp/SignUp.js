@@ -54,32 +54,37 @@ class SignUp extends Component {
 		}
 
 		return (
-			<div className="sign-up">
-				<input name="name" placeholder="Name" onChange={this.handleChange} value={this.state.name} />
-				<input type="email" name="email" placeholder="email" onChange={this.handleChange} value={this.state.email} />
-				<input
-					type="password"
-					name="password"
-					placeholder="password"
-					onChange={this.handleChange}
-					value={this.state.password}
-				/>
-				<input
-					type="password"
-					name="pwConfirm"
-					placeholder="confirm password"
-					onChange={this.handleChange}
-					value={this.state.pwConfirm}
-				/>
-				{this.state.pwMessage}
-				<button onClick={this.handleSubmit}>Sign Up</button>
-				<button onClick={this.googleLogin}>Continue With Google</button>
-				<h5>
-					Already Have a Geard Account?{' '}
-					<NavLink to="/login" className="login-link">
-						Login
-					</NavLink>
-				</h5>
+			<div className="user-input-container">
+				<div className="user-input">
+					<input name="name" placeholder="Name" onChange={this.handleChange} value={this.state.name} />
+					<input type="email" name="email" placeholder="email" onChange={this.handleChange} value={this.state.email} />
+					<input
+						type="password"
+						name="password"
+						placeholder="password"
+						onChange={this.handleChange}
+						value={this.state.password}
+					/>
+					<input
+						type="password"
+						name="pwConfirm"
+						placeholder="confirm password"
+						onChange={this.handleChange}
+						value={this.state.pwConfirm}
+					/>
+					{this.state.pwMessage}
+					<button onClick={this.handleSubmit}>Sign Up</button>
+					<button className="google-login" onClick={this.googleLogin}>
+						<div className="google-logo" />
+						Continue With Google
+					</button>
+					<h5>
+						Already Have a Geard Account?{' '}
+						<NavLink to="/login" className="login-link">
+							Login
+						</NavLink>
+					</h5>
+				</div>
 			</div>
 		)
 	}
