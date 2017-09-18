@@ -109,3 +109,9 @@ a {
 	font-size: 24px;
 	width: 30vw;
 }
+
+.explore-link {
+	color: #ff754c;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #ff754c;
+}

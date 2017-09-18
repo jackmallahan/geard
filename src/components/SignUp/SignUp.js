@@ -43,7 +43,7 @@ class SignUp extends Component {
 		googleSignIn().then(result => {
 			const user = result.user
 			console.log('user in google login', user)
-			this.props.login({ name: user.displayName, email: user.email, id: user.uid, pic: user.photoURL })
+			this.props.login({ name: user.displayName, email: user.email, id: user.uid, pic: user.photoURL, available: true })
 		})
 	}
 

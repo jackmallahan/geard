@@ -27,5 +27,6 @@
 
 .gear-info p {
 	align-self: flex-end;
+	font-size: 1.5em;
 	color: #ff754c;
 }
