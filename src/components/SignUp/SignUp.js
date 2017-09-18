@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import firebase, { googleSignIn, signOut } from '../../utils/Firebase'
+import { Redirect } from 'react-router'
 import container from '../../container/index'
 import { NavLink } from 'react-router-dom'
+import firebase, { googleSignIn } from '../../utils/Firebase'
 
 class SignUp extends Component {
 	constructor() {
@@ -26,6 +27,7 @@ class SignUp extends Component {
 
 	handleSubmit() {
 		if (this.state.password === this.state.pwConfirm) {
+			firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
 			this.setState({
 				name: '',
 				email: '',
@@ -40,14 +42,17 @@ class SignUp extends Component {
 	googleLogin() {
 		googleSignIn().then(result => {
 			const user = result.user
-			const userId = user._lat.slice(-9)
 			console.log('user in google login', user)
-			this.props.login({ name: user.displayName, email: user.email, id: userId, pic: user.photoURL })
+			this.props.login({ name: user.displayName, email: user.email, id: user.uid, pic: user.photoURL })
 		})
 	}
 
 	render() {
 		console.log('props in sign up', this.props)
+		if (this.props.loggedIn.id) {
+			return <Redirect to="/" />
+		}
+
 		return (
 			<div className="sign-up">
 				<input name="name" placeholder="Name" onChange={this.handleChange} value={this.state.name} />

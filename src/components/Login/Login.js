@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import firebase, { googleSignIn, signOut } from '../../utils/Firebase'
+import { Redirect } from 'react-router'
+import firebase, { googleSignIn } from '../../utils/Firebase'
 import container from '../../container/index'
+import './Login.css'
 
 class Login extends Component {
 	constructor() {
@@ -21,6 +23,8 @@ class Login extends Component {
 	}
 
 	handleSubmit() {
+		const emailLogin = firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+		console.log('email login', emailLogin)
 		this.setState({
 			email: '',
 			password: ''
@@ -30,27 +34,36 @@ class Login extends Component {
 	googleLogin() {
 		googleSignIn().then(result => {
 			const user = result.user
-			const userId = user._lat.slice(-9)
 			console.log('user in google login', user)
-			this.props.login({ name: user.displayName, email: user.email, id: userId, pic: user.photoURL })
+			this.props.login({ name: user.displayName, email: user.email, id: user.uid, pic: user.photoURL })
 		})
 	}
 
 	render() {
 		console.log('props in login', this.props)
+
+		if (this.props.loggedIn.id) {
+			return <Redirect to="/" />
+		}
+
 		return (
-			<div className="sign-up">
-				<input type="email" name="email" placeholder="email" onChange={this.handleChange} value={this.state.email} />
-				<input
-					type="password"
-					name="password"
-					placeholder="password"
-					onChange={this.handleChange}
-					value={this.state.password}
-				/>
-				<button onClick={this.handleSubmit}>Log In</button>
-				<button onClick={this.googleLogin}>Continue With Google</button>
-				<button onClick={this.logout}>Log out</button>
+			<div className="user-input-container">
+				<div className="login user-input">
+					<h3>X</h3>
+					<input type="email" name="email" placeholder="email" onChange={this.handleChange} value={this.state.email} />
+					<input
+						type="password"
+						name="password"
+						placeholder="password"
+						onChange={this.handleChange}
+						value={this.state.password}
+					/>
+					<button onClick={this.handleSubmit}>Log In</button>
+					<button className="google-login" onClick={this.googleLogin}>
+						<div className="google-logo" />
+						Log In With Google
+					</button>
+				</div>
 			</div>
 		)
 	}

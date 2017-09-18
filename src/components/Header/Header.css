@@ -76,14 +76,15 @@ input[type='submit'] {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 15%;
+	width: 20%;
 }
 
 .user-photo {
 	height: 40px;
 	width: 40px;
 	border-radius: 50%;
-	background-size: contain;
+	border: 1px solid grey;
+	background-size: cover;
 	background-position: center;
 	cursor: pointer;
 }

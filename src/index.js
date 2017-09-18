@@ -6,17 +6,25 @@ import thunk from 'redux-thunk'
 import { Route } from 'react-router-dom'
 import rootReducer from './reducers/index'
 import { BrowserRouter } from 'react-router-dom'
+import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
+import createHistory from 'history/createBrowserHistory'
 import App from './components/App/App'
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
-const store = createStore(rootReducer, devTools, applyMiddleware(thunk))
+const history = createHistory()
+
+const historyMiddleware = routerMiddleware(history)
+
+const store = createStore(rootReducer, devTools, applyMiddleware(historyMiddleware))
 
 const router = (
 	<Provider store={store}>
-		<BrowserRouter>
-			<Route path="/" component={App} />
-		</BrowserRouter>
+		<ConnectedRouter history={history}>
+			<BrowserRouter>
+				<Route path="/" component={App} />
+			</BrowserRouter>
+		</ConnectedRouter>
 	</Provider>
 )
 

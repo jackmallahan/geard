@@ -3,10 +3,12 @@ import { Route } from 'react-router-dom'
 import './App.css'
 import Header from '../Header/Header'
 import SignUp from '../SignUp/SignUp'
+import Login from '../Login/Login'
 import AddGear from '../AddGear/AddGear'
 import CardIndex from '../CardIndex/CardIndex'
+import Profile from '../Profile/Profile'
 import container from '../../container/index'
-import Firebase, { auth } from '../../utils/Firebase'
+import { auth } from '../../utils/Firebase'
 
 class App extends Component {
 	constructor() {
@@ -20,7 +22,8 @@ class App extends Component {
 	componentDidMount() {
 		auth.onAuthStateChanged(user => {
 			if (user) {
-				this.props.login({ name: user.displayName, email: user.email, id: user._lat.slice(-9), pic: user.photoURL })
+				console.log('user in CDM', user)
+				this.props.login({ name: user.displayName, email: user.email, id: user.uid, pic: user.photoURL })
 			}
 		})
 	}
@@ -31,7 +34,8 @@ class App extends Component {
 				<Header />
 				<Route exact path="/" component={CardIndex} />
 				<Route exact path="/signup" component={SignUp} />
-				<Route exact path="/login" component={SignUp} />
+				<Route exact path="/login" component={Login} />
+				<Route exact path="/profile/:id" component={Profile} />
 				<Route exact path="/addgear" component={AddGear} />
 			</div>
 		)

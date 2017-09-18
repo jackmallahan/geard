@@ -1,4 +1,4 @@
-import firebase, { database } from 'firebase'
+import firebase from 'firebase'
 
 // Initialize Firebase
 var config = {

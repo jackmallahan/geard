@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
+import { Redirect } from 'react-router'
 import logo from '../../assets/carabiner.png'
 import './Header.css'
-import Firebase, { auth, provider, signOut } from '../../utils/Firebase'
+import { signOut } from '../../utils/Firebase'
 import container from '../../container/index'
 
 class Header extends Component {
-	constructor() {
-		super()
-	}
-
 	logout() {
 		signOut().then(() => {
 			this.props.logout()
@@ -17,12 +14,31 @@ class Header extends Component {
 	}
 
 	render() {
+		let userName
+		let userPic
+		if (this.props.loggedIn.name) {
+			userName = this.props.loggedIn.name.split(' ', 1)
+			userPic = this.props.loggedIn.pic
+		} else {
+			userPic = `https://www.mountaineers.org/images/placeholder-images/placeholder-contact-profile/image_preview`
+		}
+
+		const searchBar = (
+			<form>
+				<input placeholder="where" />
+				<span className="border" />
+				<input placeholder="when" />
+				<span className="border" />
+				<input className="btn" type="submit" value="Search" />
+			</form>
+		)
+
+		const userProfile = `/profile/${this.props.loggedIn.id}`
+
 		const signedIn = (
-			<div className="top-nav">
-				<div
-					className="user-photo"
-					style={{ backgroundImage: `url(${this.props.loggedIn.pic})` || `url(public/geard_logo_k39_icon.ico)` }}
-				/>
+			<div className="top-nav sign-in">
+				<Link to={userProfile} className="user-photo" style={{ backgroundImage: `url(${userPic})` }} />
+				<div className="user-name">{userName}</div>
 				<NavLink to="/" onClick={() => this.logout()} className="logout-link">
 					Log Out
 				</NavLink>
@@ -30,7 +46,7 @@ class Header extends Component {
 		)
 
 		const noUser = (
-			<div className="top-nav">
+			<div className="top-nav no-user">
 				<NavLink to="/signup" className="signup-link">
 					Sign Up
 				</NavLink>
@@ -40,12 +56,19 @@ class Header extends Component {
 			</div>
 		)
 
-		let userNav
-		if (this.props.loggedIn) {
-			userNav = signedIn
-		} else {
-			userNav = noUser
-		}
+		const lowerNav = (
+			<div className="lower-nav">
+				<NavLink to="/" className="explore-link">
+					Explore
+				</NavLink>
+				<NavLink to="/adventure" className="adventure-link">
+					Adventure
+				</NavLink>
+				<NavLink to="/type" className="type-link">
+					Type
+				</NavLink>
+			</div>
+		)
 
 		return (
 			<section className="header">
@@ -54,30 +77,12 @@ class Header extends Component {
 						<div className="logo-container">
 							<img src={logo} alt="Geard Logo" />
 						</div>
-						<form>
-							<input placeholder="where" />
-							<span className="border" />
-							<input placeholder="when" />
-							<span className="border" />
-							<input className="btn" type="submit" value="Search" />
-						</form>
+						{searchBar}
 					</div>
-					{this.props.loggedIn.name && signedIn}
-					{!this.props.loggedIn.name && noUser}
+					{this.props.loggedIn.email && signedIn}
+					{!this.props.loggedIn.email && noUser}
 				</div>
-				<div className="bottom">
-					<div className="lower-nav">
-						<NavLink to="/" className="explore-link">
-							Explore
-						</NavLink>
-						<NavLink to="/adventure" className="adventure-link">
-							Adventure
-						</NavLink>
-						<NavLink to="/type" className="type-link">
-							Type
-						</NavLink>
-					</div>
-				</div>
+				<div className="bottom">{lowerNav}</div>
 			</section>
 		)
 	}
