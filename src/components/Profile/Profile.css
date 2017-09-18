@@ -1,0 +1,28 @@
+.user-profile {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin: 25px;
+}
+
+.gear-nav {
+	display: flex;
+	justify-content: space-between;
+	width: inherit;
+}
+
+.gear-nav h5 {
+	cursor: pointer;
+}
+
+.users-gear {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	overflow: scroll;
+}
+
+.user-pic {
+	height: '50px';
+	width: '50px';
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import firebase from '../../utils/Firebase'
 import container from '../../container/index'
+import './AddGear.css'
 
 class AddGear extends Component {
 	constructor(props) {
@@ -39,38 +40,39 @@ class AddGear extends Component {
 
 	render() {
 		return (
-			<div className="sign-up">
-				<form
-					onSubmit={e => {
-						e.preventDefault()
-						this.handleSubmit()
-					}}
-				>
-					<input
-						name="name"
-						type="text"
-						placeholder="Gear Name"
-						onChange={this.handleChange}
-						value={this.state.userName}
-					/>
-					<input
-						name="activity"
-						type="text"
-						placeholder="Activity"
-						onChange={this.handleChange}
-						value={this.state.activity}
-					/>
-					$<input
-						name="price"
-						placeholder="0"
-						type="number"
-						min="0.00"
-						step="0.25"
-						onChange={this.handleChange}
-						value={this.state.price}
-					/>
-					<input type="submit" />
-				</form>
+			<div id="addGear" className="add-gear-container">
+				<div className="add-gear-content sign-up">
+					<form
+						onSubmit={e => {
+							this.handleSubmit()
+						}}
+					>
+						<input
+							name="name"
+							type="text"
+							placeholder="Gear Name"
+							onChange={this.handleChange}
+							value={this.state.userName}
+						/>
+						<input
+							name="activity"
+							type="text"
+							placeholder="Activity"
+							onChange={this.handleChange}
+							value={this.state.activity}
+						/>
+						$<input
+							name="price"
+							placeholder="0"
+							type="number"
+							min="0.00"
+							step="0.25"
+							onChange={this.handleChange}
+							value={this.state.price}
+						/>
+						<input type="submit" />
+					</form>
+				</div>
 			</div>
 		)
 	}

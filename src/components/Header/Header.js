@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { Redirect } from 'react-router'
 import logo from '../../assets/carabiner.png'
 import './Header.css'
 import { signOut } from '../../utils/Firebase'
@@ -14,11 +13,12 @@ class Header extends Component {
 	}
 
 	render() {
+		const { loggedIn } = this.props
 		let userName
 		let userPic
-		if (this.props.loggedIn.name) {
-			userName = this.props.loggedIn.name.split(' ', 1)
-			userPic = this.props.loggedIn.pic
+		if (loggedIn.name) {
+			userName = loggedIn.name.split(' ', 1)
+			userPic = loggedIn.pic
 		} else {
 			userPic = `https://www.mountaineers.org/images/placeholder-images/placeholder-contact-profile/image_preview`
 		}
@@ -33,7 +33,7 @@ class Header extends Component {
 			</form>
 		)
 
-		const userProfile = `/profile/${this.props.loggedIn.id}`
+		const userProfile = `/profile/${loggedIn.id}`
 
 		const signedIn = (
 			<div className="top-nav sign-in">
@@ -79,8 +79,8 @@ class Header extends Component {
 						</div>
 						{searchBar}
 					</div>
-					{this.props.loggedIn.email && signedIn}
-					{!this.props.loggedIn.email && noUser}
+					{loggedIn.email && signedIn}
+					{!loggedIn.email && noUser}
 				</div>
 				<div className="bottom">{lowerNav}</div>
 			</section>
