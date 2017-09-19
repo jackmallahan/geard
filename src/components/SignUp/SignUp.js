@@ -27,7 +27,16 @@ class SignUp extends Component {
 
 	handleSubmit() {
 		if (this.state.password === this.state.pwConfirm) {
-			firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+			firebase
+				.auth()
+				.createUserWithEmailAndPassword(this.state.email, this.state.password)
+				.then(result => {
+					this.props.login({
+						name: this.state.name,
+						email: result.email,
+						id: result.uid
+					})
+				})
 			this.setState({
 				name: '',
 				email: '',
@@ -42,8 +51,7 @@ class SignUp extends Component {
 	googleLogin() {
 		googleSignIn().then(result => {
 			const user = result.user
-			console.log('user in google login', user)
-			this.props.login({ name: user.displayName, email: user.email, id: user.uid, pic: user.photoURL, available: true })
+			this.props.login({ name: user.displayName, email: user.email, id: user.uid, pic: user.photoURL })
 		})
 	}
 

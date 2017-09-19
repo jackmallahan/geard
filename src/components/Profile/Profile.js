@@ -10,8 +10,11 @@ class Profile extends Component {
 		super()
 		this.addGear = <AddGear />
 		this.state = {
-			showAdd: false
+			showAdd: false,
+			showConfirm: false
 		}
+		this.removeGear = this.removeGear.bind(this)
+		this.confirm = this.confirm.bind(this)
 	}
 	componentDidMount() {
 		const gearRef = firebase.database().ref('gear')
@@ -28,6 +31,17 @@ class Profile extends Component {
 		})
 	}
 
+	removeGear(gearId) {
+		console.log('clicked')
+		const gearRef = firebase.database().ref(`/gear/${gearId}`)
+		gearRef.remove()
+	}
+
+	confirm(id) {
+		console.log('clicked ID', id)
+		this.setState({ showConfirm: true })
+	}
+
 	render() {
 		const { loggedIn, gear } = this.props
 		let userName
@@ -41,13 +55,20 @@ class Profile extends Component {
 		let userGear = []
 		gear.forEach(gear => {
 			if (gear.owner.id === loggedIn.id) {
+				let removeButton = Object.assign({}, gear, (gear.remove = 'Remove this Piece of Gear'))
 				userGear.push(gear)
 			}
 		})
 
-		let mappedGear
-
-		mappedGear = userGear.map((gear, index) => <GearCard key={gear.id} {...gear} index={index} />)
+		let mappedGear = userGear.map((gear, index) => (
+			<GearCard
+				key={gear.id}
+				{...gear}
+				showConfirm={this.state.showConfirm}
+				removeGear={this.removeGear}
+				confirm={this.confirm}
+			/>
+		))
 
 		return (
 			<div className="user-profile">

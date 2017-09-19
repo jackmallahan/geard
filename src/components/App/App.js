@@ -21,14 +21,18 @@ class App extends Component {
 
 	componentDidMount() {
 		auth.onAuthStateChanged(user => {
+			if (user && !user.name) {
+				// this.props.emailLogin({
+				//
+				// })
+			}
 			if (user) {
 				console.log('user in CDM', user)
 				this.props.login({
 					name: user.displayName,
 					email: user.email,
 					id: user.uid,
-					pic: user.photoURL,
-					available: true
+					pic: user.photoURL
 				})
 			}
 		})

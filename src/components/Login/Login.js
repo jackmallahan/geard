@@ -24,11 +24,6 @@ class Login extends Component {
 
 	handleSubmit() {
 		const emailLogin = firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-		console.log('email login', emailLogin)
-		this.setState({
-			email: '',
-			password: ''
-		})
 	}
 
 	googleLogin() {

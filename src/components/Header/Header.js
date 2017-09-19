@@ -25,7 +25,7 @@ class Header extends Component {
 
 		const searchBar = (
 			<form>
-				<input placeholder="where" />
+				<input placeholder="Search" />
 				<span className="border" />
 				<input placeholder="when" />
 				<span className="border" />
