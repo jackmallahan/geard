@@ -22,7 +22,7 @@ class CardIndex extends Component {
 
 	render() {
 		const gearArray = this.props.gear || []
-		const gearInfo = gearArray.map((gear, index) => <GearCard key={gear.id} {...gear} index={index} />)
+		const gearInfo = gearArray.map((gear, index) => <GearCard key={gear.id} {...gear} />)
 		return <div className="card-index">{gearInfo}</div>
 	}
 }

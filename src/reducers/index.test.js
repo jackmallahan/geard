@@ -101,22 +101,9 @@ describe('signUpReducer', () => {
 			signUpReducer(
 				{},
 				{
-					type: 'LOGIN',
-					user
+					type: 'LOGOUT'
 				}
-			).toEqual({
-				email: 'email@email.com',
-				password: 'test123'
-			})
+			).toEqual({})
 		)
-
-		// expect(
-		// 	signUpReducer(
-		// 		{},
-		// 		{
-		// 			type: 'LOGIN'
-		// 		}
-		// 	).toEqual({})
-		// )
 	})
 })

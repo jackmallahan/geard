@@ -9,7 +9,10 @@ class AddGear extends Component {
 		this.state = {
 			name: '',
 			activity: '',
-			price: ''
+			description: '',
+			price: '',
+			photo: '',
+			clicked: false
 		}
 		this.handleChange = this.handleChange.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,15 +29,21 @@ class AddGear extends Component {
 		const gear = {
 			name: this.state.name,
 			activity: this.state.activity,
+			description: this.state.description,
 			price: this.state.price,
-			owner: this.props.loggedIn
+			owner: this.props.loggedIn,
+			photo: this.state.photo,
+			clicked: false
 		}
 		gearRef.push(gear)
 		this.props.addGear(gear)
 		this.setState({
 			name: '',
 			activity: '',
-			price: ''
+			description: '',
+			price: '',
+			photo: '',
+			clicked: false
 		})
 	}
 
@@ -47,6 +56,7 @@ class AddGear extends Component {
 							this.handleSubmit()
 						}}
 					>
+						<h2>Add Gear</h2>
 						<input
 							name="name"
 							type="text"
@@ -61,16 +71,23 @@ class AddGear extends Component {
 							onChange={this.handleChange}
 							value={this.state.activity}
 						/>
-						$<input
+						<input
+							name="description"
+							type="text"
+							placeholder="Description..."
+							onChange={this.handleChange}
+							value={this.state.description}
+						/>
+						<input
 							name="price"
-							placeholder="0"
+							placeholder="$0"
 							type="number"
 							min="0.00"
-							step="0.25"
 							onChange={this.handleChange}
 							value={this.state.price}
 						/>
-						<input type="submit" />
+						<input name="photo" placeholder="link to photo" onChange={this.handleChange} value={this.state.photo} />
+						<input className="add-gear-btn" type="submit" />
 					</form>
 				</div>
 			</div>

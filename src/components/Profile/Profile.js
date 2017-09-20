@@ -11,7 +11,8 @@ class Profile extends Component {
 		this.addGear = <AddGear />
 		this.state = {
 			showAdd: false,
-			showConfirm: false
+			showConfirm: false,
+			clicked: false
 		}
 		this.removeGear = this.removeGear.bind(this)
 		this.confirm = this.confirm.bind(this)
@@ -67,12 +68,14 @@ class Profile extends Component {
 				showConfirm={this.state.showConfirm}
 				removeGear={this.removeGear}
 				confirm={this.confirm}
+				clicked={this.state.clicked}
+				selectCard={this.selectCard}
 			/>
 		))
 
 		return (
 			<div className="user-profile">
-				<h1>{`Hey, ${userName}`}</h1>
+				{userName && <h1>{`Hey, ${userName}`}</h1>}
 				<div className="user-pic" style={{ backgroundImage: `url(${userPic})` }} />
 				<div className="gear-nav">
 					<h3>Your Gear</h3>

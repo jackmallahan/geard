@@ -1,14 +1,4 @@
-.add-gear-container {
-	align-self: center;
-	width: 75%;
-	margin: 25px 0;
-}
-
-.add-gear-content form {
-	width: inherit;
-}
-
-/*#addGear {
+#addGear {
 	position: fixed;
 	z-index: 1;
 	padding-top: 100px;
@@ -19,21 +9,47 @@
 	overflow: auto;
 	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.4);
-}*/
+}
 
-/*.add-gear-content {
+.add-gear-content {
 	position: relative;
 	background-color: #fefefe;
 	margin: auto;
 	padding: 0;
 	border: 1px solid #888;
+	border-radius: 5px;
 	width: 80%;
+	height: 50%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	animation-name: animatetop;
 	animation-duration: 0.4s;
-}*/
+}
 
-/*@-webkit-keyframes animatetop {
+.add-gear-content form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+
+.add-gear-content h2 {
+	align-self: flex-start;
+	margin-left: 10%;
+}
+
+.add-gear-content input {
+	border: 1px solid grey;
+	width: 80%;
+	margin: 10px 0;
+}
+
+.add-gear-content .add-gear-btn {
+	width: 40%;
+}
+
+@-webkit-keyframes animatetop {
 	from {
 		top: -300px;
 		opacity: 0;
@@ -42,9 +58,9 @@
 		top: 0;
 		opacity: 1;
 	}
-}*/
+}
 
-/*@keyframes animatetop {
+@keyframes animatetop {
 	from {
 		top: -300px;
 		opacity: 0;
@@ -53,4 +69,4 @@
 		top: 0;
 		opacity: 1;
 	}
-}*/
+}
